@@ -4,6 +4,7 @@ Pipeline open - process - extract metrics from videos
 '''
 
 from modules.aux_open import *
+from modules.aux_face import *
 
 # Open video as class
 video_render = open_video_path(path='Base de datos/pb_02', Select=1)
@@ -17,8 +18,9 @@ for i in range(num_windows):
     if len(frames) == 0:
         raise Exception('Could not extract video in the window')
     print(f'Window: {i+1} / {num_windows}')
-    # Detect face in window video
-    
+    print('Star procesing video')
+    Detected_face(Frames=frames, height=video_render.shape_HW[0], width=video_render.shape_HW[1])
 
-    if i == 4: break
+    # Detect face in window video
+    if i == 3: break
 

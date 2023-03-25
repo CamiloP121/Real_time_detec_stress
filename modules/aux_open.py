@@ -1,6 +1,7 @@
 import os
-from tqdm import tqdm
+from modules.utils import tqdm_bar
 from modules.class_video import Video
+
 
 def open_video_path(path:str, Select:int, info:bool=False):
     '''
@@ -57,11 +58,8 @@ def render_video(Video:object, window:int):
     Returns:
     - Frames in window
     '''
-
-
     Frames = []
-    pbar = tqdm(total=window, bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]",
-            desc="Loading video of the window", ncols=70, ascii=True)
+    pbar = tqdm_bar(text='Loading video from window', time=window)
 
     while Video.capture.isOpened():
         ret, frame = Video.capture.read()
