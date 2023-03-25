@@ -1,7 +1,6 @@
 import mediapipe as mp
 import cv2
 import numpy as np
-from modules.utils import tqdm_bar
 
 def Equ_Hist(image: np.ndarray):
     '''
@@ -100,7 +99,7 @@ def Not_Detection(I_Before,I_Temp):
     cv2.waitKey(1000)'''
     return ban
 
-def Detected_face(Frames:list, height:int, width:int):
+def Detected_face(Frames:list, height:int, width:int, error=False):
     '''
     Face detection by MediaPipe
     ----------------------------------------------------------------
@@ -160,11 +159,16 @@ def Detected_face(Frames:list, height:int, width:int):
                 I_Before = image ; Result_Before = detection
             
             cont += 1
+            # '''
             if cont == 8: 
-                print(len(Vec_Image), len(Vec_Image_dw), len(Vec_Image))
-                return Vec_Image, Vec_Image_dw, Vec_Image
+                if error: print(type(Vec_Image), type(Vec_Image_dw), type(Vec_Image), cont)
+                return Vec_Image, Vec_Image_dw, Vec_Image, cont
+        
             '''
             cv2.imshow('Deteccion mediapipe', np.hstack((I,I_draw)))
             if cv2.waitKey(10) & 0xFF == ord('q'): 
                 break
             '''
+
+        # Case finish frames
+        return Vec_Image, Vec_Image_dw, Vec_Image, cont
