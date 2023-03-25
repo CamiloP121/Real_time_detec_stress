@@ -99,7 +99,7 @@ def Not_Detection(I_Before,I_Temp):
     cv2.waitKey(1000)'''
     return ban
 
-def Detected_face(Frames:list, height:int, width:int, error=False):
+def Detected_face(Frames:list, height:int, width:int):
     '''
     Face detection by MediaPipe
     ----------------------------------------------------------------
@@ -159,16 +159,8 @@ def Detected_face(Frames:list, height:int, width:int, error=False):
                 I_Before = image ; Result_Before = detection
             
             cont += 1
-            # '''
             if cont == 8: 
-                if error: print(type(Vec_Image), type(Vec_Image_dw), type(Vec_Image), cont)
-                return Vec_Image, Vec_Image_dw, Vec_Image, cont
-        
-            '''
-            cv2.imshow('Deteccion mediapipe', np.hstack((I,I_draw)))
-            if cv2.waitKey(10) & 0xFF == ord('q'): 
-                break
-            '''
+                return Vec_Image, Vec_Image_dw, Vec_Results, cont
 
         # Case finish frames
-        return Vec_Image, Vec_Image_dw, Vec_Image, cont
+        return Vec_Image, Vec_Image_dw, Vec_Results, cont
