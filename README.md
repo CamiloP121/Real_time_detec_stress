@@ -12,7 +12,7 @@ modules: This folder contains the project's modules.
 - class_video.py: This module contains the Video class, which handles video and stress detection.
 - utils.py: This module contains utility functions for image processing.
 - aux_features: This module contains all features to extract in video. (**In construction**)
-init.py: This file is the entry point for the project.
+- init.py: This file is the entry point for the project.
 
 # Requirements
 
