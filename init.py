@@ -26,7 +26,12 @@ for i in range(num_windows):
         cont_general += cont
         print('Star procesing video: ',cont_general,'/',len(frames), end='\r')
         if plots: plot(images=Vec_Image, images_2=Vec_Image_dw, how=True, title='Face')
-    # Features extraction module
+        ## Features extraction module
+        # 1. ()
+        # 2. ()
+        # 3. ()
+        # 4. ()
+        
 
     # Detect face in window video
     if i == 3: break
